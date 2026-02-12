@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabun Cuci Motor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" >
+    <h1 class="logo graffiti">Kilap.Go Official</h1>
+    <a href="#produk" class="btn-home">Produk</a>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <img src="kilapgo.jpg" class="hero-img">
+      <h2>Sabun Cuci Motor Super Bersih</h2>
+      <p>Busa tebal, wangi segar, aman untuk cat motor.</p>
+    </div>
+
+       <!-- ICON SOSIAL -->
+  <div class="hero-social">
+
+    <!-- WhatsApp -->
+    <a
+      href="https://wa.me/6281234567890?text=Halo%20admin,%20saya%20ingin%20pesan%20kilap.go%20."
+      target="_blank"
+      class="icon wa"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a
+      href="https://instagram.com/usernamekamu"
+      target="_blank"
+      class="icon ig"
+    >
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <!-- Shopee -->
+    <a
+      href="https://shopee.co.id/usernamekamu"
+      target="_blank"
+      class="icon shopee"
+    >
+      <i class="fa-solid fa-bag-shopping"></i>
+    </a>
+  </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section class="produk" id="produk">
+    <h2>Produk Kami</h2>
+    <div class="produk-list">
+
+    <div class="card"
+      data-img="img/sabungobiru.jpg"
+      data-title="Kilap.Go 250ml"
+      data-price="Rp 15.000"
+      data-desc="Sabun cuci motor dengan busa tebal dan wangi segar."
+      data-wa="Halo admin, saya ingin pesan Kilap.Go 250ml"
+    >
+      <img src="img/sabungobiru.jpg">
+      <h3>Kilap.Go 250ml</h3>
+      <p class="harga">Rp 15.000</p>
+    </div>
+
+    <div class="card"
+      data-img="img/sabungobiru.jpg"
+      data-title="Kilap.Go 250ml"
+      data-price="Rp 20.000"
+      data-desc="Sabun cuci motor penghilang kerak krangkas."
+      data-wa="Halo admin, saya ingin pesan Kilap.Go 250ml"
+    >
+      <img src="img/sabungobiru.jpg">
+      <h3>Kilap.Go 250ml</h3>
+      <p class="harga">Rp 20.000</p>
+    </div>
+    
+    <div 
+      class="card"
+      data-img="img/sabungobiru.jpg"
+      data-title="Kilap.Go 250ml"
+      data-price="Rp 25.000"
+      data-desc="Sabun cuci motor anti rusak cat."
+      data-wa="Halo admin, saya ingin pesan Kilap.Go 250ml"
+    >
+      <img src="img/sabungobiru.jpg">
+      <h3>Kilap.Go 250ml</h3>
+      <p class="harga">Rp 25.000</p>
+    </div>
+  </div>
+  <!-- MODAL PRODUK -->
+    <div class="modal" id="produkModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modalImg">
+        <h3 id="modalTitle"></h3>
+        <p id="modalPrice" class="harga"></p>
+        <p id="modalDesc"></p>
+        <a 
+        id="modalWa"
+        class="btn-wa"
+        target="_blank"
+        >Order Via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEUNGGULAN -->
+  <section class="keunggulan">
+    <h2>Kenapa Pilih KilapGo?</h2>
+
+    <div class="keunggulan-box">
+      <div class="unggul">
+        <h3>🫧 Busa Tebal</h3>
+        <p>Mengangkat kotoran lebih cepat.</p>
+      </div>
+
+      <div class="unggul">
+        <h3>🛡 Aman Cat</h3>
+        <p>Tidak merusak body dan stiker motor.</p>
+      </div>
+
+      <div class="unggul">
+        <h3>🌿 Wangi Segar</h3>
+        <p>Aroma segar tahan lama.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="testimoni">
+    <h2>Apa Kata Pelanggan Kami?</h2>
+
+    <div class="testimoni-box">
+
+      <div class="testi-card">
+        <p class="bintang">⭐⭐⭐⭐⭐</p>
+        <p>"Motornya jadi kinclong banget setelah pakai Kilap GO!"</p>
+        <h4>- Randy</h4>
+      </div>
+
+      <div class="testi-card">
+        <p class="bintang">⭐⭐⭐⭐⭐</p>
+        <p>"Busanya tebal dan wanginya enak, recommended!"</p>
+        <h4>- Budi</h4>
+      </div>
+
+      <div class="testi-card">
+        <p class="bintang">⭐⭐⭐⭐⭐</p>
+        <p>"Harga murah tapi kualitas mantap."</p>
+        <h4>- Rian</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING WHATSAPP -->
+    <a
+     href="https://wa.me/6285772235976?text=Halo%20admin,%20saya%20ingin%20pesan%20Sabun%20Kilap.Go."
+     class="wa-float"
+    target="_blank">💬</a>
+  <!-- scrol smoth -->
+     <button id="backToTop" title="kembali ke atas">⬆</button>
+
+    <!-- FOOTER -->
+  <footer>
+    © 2026 Kilap.Go
+  </footer>
+<script src="script.js"></script>
+  </body>
+</html>
