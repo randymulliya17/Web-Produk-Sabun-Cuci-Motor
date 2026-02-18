@@ -56,26 +56,31 @@ produkModal.addEventListener("click", e => {
 })
 
 document.getElementById('ig-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    
     const username = "kilap.go";
+    const appUrl = "instagram://user?username=" + username;
     const webUrl = "https://www.instagram.com/" + username + "/";
     
-    // Protokol khusus untuk mencoba menembus browser WhatsApp
-    const appUrl = "instagram://user?username=" + username;
+    // Link khusus untuk Android (Intent) agar bisa tembus dari WA
     const intentUrl = "intent://instagram.com/_u/" + username + "/#Intent;package=com.instagram.android;scheme=https;end";
 
-    // Cek apakah pengguna pakai Android
     const isAndroid = /Android/i.test(navigator.userAgent);
+    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isAndroid) {
-        e.preventDefault();
+        // Paksa buka aplikasi di Android
         window.location.href = intentUrl;
-    } else {
-        // Untuk iOS/Desktop, coba buka skema app dulu
+    } else if (isiOS) {
+        // Untuk iPhone
         window.location.href = appUrl;
+    } else {
+        // Untuk Laptop/Desktop
+        window.location.href = webUrl;
     }
 
-    // Fallback: Jika aplikasi tidak terbuka dalam 1 detik, buka versi web
+    // Fallback: Jika dalam 1.5 detik aplikasi tidak terbuka, buka web
     setTimeout(function() {
         window.location.href = webUrl;
-    }, 1000);
+    }, 1500);
 });
