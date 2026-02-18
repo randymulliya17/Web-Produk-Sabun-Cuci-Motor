@@ -1,6 +1,5 @@
 //BACK TO TOP
 const backToTopBtn = document.getElementById('backToTop')
-const igLink = document.querySelector('.icon.ig')
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
@@ -56,18 +55,27 @@ produkModal.addEventListener("click", e => {
     }
 })
 
-igLink.addEventListener('click', function(e) {
-    const username = "kilap.go"
-    const appUrl = "instagram://user?username=" + username
-    const webUrl = "https://www.instagram.com/" + username + "/"
+document.getElementById('ig-link').addEventListener('click', function(e) {
+    const username = "kilap.go";
+    const webUrl = "https://www.instagram.com/" + username + "/";
+    
+    // Protokol khusus untuk mencoba menembus browser WhatsApp
+    const appUrl = "instagram://user?username=" + username;
+    const intentUrl = "intent://instagram.com/_u/" + username + "/#Intent;package=com.instagram.android;scheme=https;end";
 
-    // Coba tembak ke aplikasi langsung
-    window.location.href = appUrl
+    // Cek apakah pengguna pakai Android
+    const isAndroid = /Android/i.test(navigator.userAgent);
 
-    // Jika aplikasi tidak ada, buka versi web setelah 1 detik
-    setTimeout(() => {
-        window.location.href = webUrl
-    }, 1000)
+    if (isAndroid) {
+        e.preventDefault();
+        window.location.href = intentUrl;
+    } else {
+        // Untuk iOS/Desktop, coba buka skema app dulu
+        window.location.href = appUrl;
+    }
 
-    e.preventDefault()
+    // Fallback: Jika aplikasi tidak terbuka dalam 1 detik, buka versi web
+    setTimeout(function() {
+        window.location.href = webUrl;
+    }, 1000);
 });
