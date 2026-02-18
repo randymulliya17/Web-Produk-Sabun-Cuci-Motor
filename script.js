@@ -56,31 +56,28 @@ produkModal.addEventListener("click", e => {
 })
 
 document.getElementById('ig-link').addEventListener('click', function(e) {
-    e.preventDefault();
-    
+    e.preventDefault(); // Menghentikan browser agar tidak buka link web dulu
+
     const username = "kilap.go";
     const appUrl = "instagram://user?username=" + username;
     const webUrl = "https://www.instagram.com/" + username + "/";
     
-    // Link khusus untuk Android (Intent) agar bisa tembus dari WA
+    // Ini adalah 'kunci' untuk Android agar bisa loncat dari WhatsApp ke IG
     const intentUrl = "intent://instagram.com/_u/" + username + "/#Intent;package=com.instagram.android;scheme=https;end";
 
+    // Cek perangkat
     const isAndroid = /Android/i.test(navigator.userAgent);
-    const isiOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isAndroid) {
-        // Paksa buka aplikasi di Android
-        window.location.href = intentUrl;
-    } else if (isiOS) {
-        // Untuk iPhone
-        window.location.href = appUrl;
+        // Paksa buka aplikasi di Android melalui Intent
+        window.location.replace(intentUrl);
     } else {
-        // Untuk Laptop/Desktop
-        window.location.href = webUrl;
+        // Untuk iPhone atau perangkat lain
+        window.location.replace(appUrl);
     }
 
-    // Fallback: Jika dalam 1.5 detik aplikasi tidak terbuka, buka web
+    // Fallback: Jika dalam 2 detik aplikasi tidak terbuka (misal IG tidak diinstall), buka web
     setTimeout(function() {
         window.location.href = webUrl;
-    }, 1500);
+    }, 2000);
 });
