@@ -54,3 +54,30 @@ produkModal.addEventListener("click", e => {
        produkModal.style.display = "none"
     }
 })
+
+document.getElementById('ig-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Username dengan titik
+    const username = "kilap.go"; 
+    
+    // Link khusus aplikasi (Deep Link)
+    const appUrl = "instagram://user?username=" + username;
+    
+    // Link web standar sebagai cadangan
+    const webUrl = "https://www.instagram.com/" + username + "/";
+
+    // Simpan waktu saat ini
+    const startTime = Date.now();
+
+    // 1. Coba buka aplikasi Instagram
+    window.location.href = appUrl;
+
+    // 2. Cek apakah user masih di halaman yang sama setelah 500ms
+    // Jika masih di sini, berarti aplikasi gagal dibuka, lempar ke Web.
+    setTimeout(function() {
+        if (Date.now() - startTime < 1500) {
+            window.location.href = webUrl;
+        }
+    }, 1000);
+});
