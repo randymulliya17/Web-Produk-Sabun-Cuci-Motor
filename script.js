@@ -1,5 +1,6 @@
 //BACK TO TOP
 const backToTopBtn = document.getElementById('backToTop')
+const igLink = document.querySelector('.icon.ig')
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
@@ -55,29 +56,18 @@ produkModal.addEventListener("click", e => {
     }
 })
 
-document.getElementById('ig-link').addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Username dengan titik
-    const username = "kilap.go"; 
-    
-    // Link khusus aplikasi (Deep Link)
-    const appUrl = "instagram://user?username=" + username;
-    
-    // Link web standar sebagai cadangan
-    const webUrl = "https://www.instagram.com/" + username + "/";
+igLink.addEventListener('click', function(e) {
+    const username = "kilap.go"
+    const appUrl = "instagram://user?username=" + username
+    const webUrl = "https://www.instagram.com/" + username + "/"
 
-    // Simpan waktu saat ini
-    const startTime = Date.now();
+    // Coba tembak ke aplikasi langsung
+    window.location.href = appUrl
 
-    // 1. Coba buka aplikasi Instagram
-    window.location.href = appUrl;
+    // Jika aplikasi tidak ada, buka versi web setelah 1 detik
+    setTimeout(() => {
+        window.location.href = webUrl
+    }, 1000)
 
-    // 2. Cek apakah user masih di halaman yang sama setelah 500ms
-    // Jika masih di sini, berarti aplikasi gagal dibuka, lempar ke Web.
-    setTimeout(function() {
-        if (Date.now() - startTime < 1500) {
-            window.location.href = webUrl;
-        }
-    }, 1000);
+    e.preventDefault()
 });
